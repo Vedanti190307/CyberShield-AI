@@ -1,0 +1,32 @@
+---
+/**
+ * Sidebar component for CyberShield AI dashboard
+ */
+---
+<style lang="scss">
+  @use '@styles/colors' as *;
+  .sidebar {
+    @apply bg-gray-900 text-gray-100 h-screen flex flex-col p-4 gap-4;
+    width: 250px;
+  }
+  .nav-link {
+    @apply flex items-center gap-2 hover:text-cyan-400 transition-colors;
+  }
+</style>
+
+<nav class="sidebar">
+  <h2 class="text-xl font-bold mb-4" style="color: var(--color-primary);"><a href="/" class="text-inherit no-underline">CyberShield AI</a></h2>
+  <ul class="flex flex-col gap-2">
+    <li><a class="nav-link" href="/dashboard"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6" /></svg>Dashboard</a></li>
+    <li><a class="nav-link" href="/check"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2v4h4v-4c0-1.1-.9-2-2-2z" /></svg>Website Scan</a></li>
+    <li><a class="nav-link" href="/findings"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6" /></svg>Findings</a></li>
+    <li><a class="nav-link" href="/remediation"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Remediation</a></li>
+    <li><a class="nav-link" href="/history"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /></svg>Scan History</a></li>
+    <li><a class="nav-link" href="/reports"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6" /></svg>Reports</a></li>
+    <li><a class="nav-link" href="/file-analysis"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8M8 12h8M8 8h8" /></svg>File Analysis</a></li>
+    <li><a class="nav-link" href="/image-analysis"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h16v16H4V4z" /></svg>Image Analysis</a></li>
+    <li><a class="nav-link" href="/source-code"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6" /></svg>Source Code</a></li>
+    <li><a class="nav-link" href="/api-assessment"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" /></svg>API Assessment</a></li>
+    <li><a class="nav-link" href="/settings"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>Settings</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,43 @@
+---
+import Dashboard from '@layouts/Dashboard.astro';
+---
+
+<Dashboard>
+  <h1 class="text-2xl font-bold text-cyan-400">Scan History</h1>
+  <div id="history" class="mt-4 space-y-4">
+    <!-- History will be injected here -->
+  </div>
+</Dashboard>
+
+<script type="module">
+  const container = document.getElementById('history');
+  async function loadHistory() {
+    try {
+      const resp = await fetch('/history-data');
+      if (!resp.ok) throw new Error('Failed to fetch');
+      const history = await resp.json();
+      if (!Array.isArray(history) || history.length === 0) {
+        container.innerHTML = '<p class="text-gray-200">No scans recorded yet.</p>';
+        return;
+      }
+      // Render entries (most recent first)
+      history.slice().reverse().forEach((entry) => {
+        const el = document.createElement('div');
+        el.className = 'p-4 bg-gray-800 rounded';
+        el.innerHTML = `
+          <p><strong>Timestamp:</strong> ${new Date(entry.timestamp).toLocaleString()}</p>
+          <p><strong>URL:</strong> <a href="${entry.url}" target="_blank" class="text-cyan-400 underline">${entry.url}</a></p>
+          <details class="mt-2 text-gray-300">
+            <summary>Results (JSON)</summary>
+            <pre class="overflow-x-auto text-xs">${JSON.stringify(entry.results, null, 2)}</pre>
+          </details>
+        `;
+        container.appendChild(el);
+      });
+    } catch (e) {
+      console.error(e);
+      container.innerHTML = '<p class="text-red-400">Error loading history.</p>';
+    }
+  }
+  loadHistory();
+</script>

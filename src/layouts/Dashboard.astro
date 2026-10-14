@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@layouts/Base.astro';
+import Sidebar from '@components/Sidebar.astro';
+---
+
+<BaseLayout {...Astro.props}>
+  <div class="flex min-h-screen bg-gray-900 text-gray-100">
+    <Sidebar />
+    <div class="flex-1 p-6">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .flex {
+    @apply min-h-screen;
+  }
+</style>
